@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -37,7 +37,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-29a19b5acbeac218a8c860e48340d4df.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -80,8 +80,6 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    </a>
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">De.KCD - Data Management Platform on the Cloud - Quickstart</span>
     </a>
@@ -112,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Pseudonymization</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/DM_planning.html">Data Management Principles</a></li><li class="breadcrumb-item"><a href="../pages/Pseudonymization.html">Pseudonymization</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -125,10 +123,6 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-      <a href="../index.html" class="sidebar-logo-link">
-      </a>
-      </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
@@ -161,6 +155,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../pages/DM_planning.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">DataManagement - Planning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/Pseudonymization.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Pseudonymization</span></a>
   </div>
 </li>
       </ul>
@@ -240,7 +240,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/DM_planning.html">Data Management Principles</a></li><li class="breadcrumb-item"><a href="../pages/Pseudonymization.html">Pseudonymization</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Pseudonymization</h1>
 </div>
@@ -296,13 +296,18 @@ If the ID to the related record was firstname-lastname_date of birth, and the ag
 <p>A pseudonymization allows a link between the original record (containing private information) and the pseudonymized record (that is open to more or different) persons <strong>only</strong> through another separated information - protected evidently.</p>
 <p>So the data should ideally not be pseudonymized on the destination server, but prior to the export here. It could still be pseudonymized there if the mapping information - from the original data ID to the pseudonym - is not kept.</p>
 <p>The external information to support the mapping can be the tuple original record’s identifier and pseudonym securely kept, or a key to decrypt the pseudonym which is mapped to the original record’s identifier on the same platform as the original record. If different persons need different access, it is possible to use several keys.</p>
-<p><a href="../images/Mapping.svg">Mapping</a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/Mapping.svg" class="img-fluid figure-img"></p>
+<figcaption>Mapping</figcaption>
+</figure>
+</div>
 <p>For security reasons, it would be better to give a new ID for the exported records, independent of the pseudonym, and use the pseudonym only for linking with the original record: in that case, if the mapping data has been compromised, it is easy to rebuild the mapping without breaking the exported data and their use. It might also help re-exporting the data with a new mapping if this last is lost.</p>
 <p>Data masking can be done either by the migrating script, by the exporting system or on the system to export to. It will probably be done by the migrating script in most cases, but could be complemented. In NextCloud we could develop an app (plugin for NextCloud) for doing so.</p>
 </section>
 <section id="existing-technical-solutions" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> Existing technical solutions</h1>
-<p>For the pseudonymization of record in itself, there aren’t many existing solutions, especially from OpenSource projects. Fortunately there is a very mature web-based tool available called <a href="https://www.ths-greifswald.de/forscher/gpas/">gPAS</a> (and on <a href="https://github.com/mosaic-hgw/gPAS">GitHub</a>), already used in several institutions in Germany. Other OpenSource projects include <a href="https://github.com/kiprotect/kodex">Kodex</a>, also very complete but offering a web-interface only for the commercial version, a Rest-based API solution called <a href="https://amnesia.openaire.eu/download.html">Amnesia</a>, which would need to be run locally only or behind some authentication, and an desktop tool: <a href="https://www.openpseudonymiser.org">OpenPseudonymiser</a>. There exists also commercial solutions, such as <a href="https://www.viacryp.eu/">Viacryp</a>.</p>
+<p>For the pseudonymization of record in itself, there aren’t many existing solutions, especially from OpenSource projects, but <a href="https://bitbucket.org/medicalinformatics/mainzelliste/src/master/">Mainzelliste</a> can be set-up locally as well as used online. Fortunately there is a very mature web-based tool available called <a href="https://www.ths-greifswald.de/forscher/gpas/">gPAS</a> (and on <a href="https://github.com/mosaic-hgw/gPAS">GitHub</a>), already used in several institutions in Germany. Other OpenSource projects include <a href="https://github.com/kiprotect/kodex">Kodex</a>, also very complete but offering a web-interface only for the commercial version, a Rest-based API solution called <a href="https://amnesia.openaire.eu/download.html">Amnesia</a>, which would need to be run locally only or behind some authentication, and an desktop tool: <a href="https://www.openpseudonymiser.org">OpenPseudonymiser</a>. There exists also commercial solutions, such as <a href="https://www.viacryp.eu/">Viacryp</a>.</p>
 <p>Data masking is supported by <a href="https://github.com/CGI-FR/PIMO">PIMO</a> that supports most method and work on JSon. It is also something we could implement. There is nothing difficult in doing it, but the difficulty resides on how much to remove/degrade so we comply with the need of data protection without rendering the data useless.</p>
 </section>
 <section id="things-to-be-careful-of" class="level1" data-number="6">

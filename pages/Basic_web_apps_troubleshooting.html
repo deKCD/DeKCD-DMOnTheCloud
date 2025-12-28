@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Backups and Security – De.KCD - Data Management Platform on the Cloud - Quickstart</title>
+<title>basic_web_apps_troubleshooting – De.KCD - Data Management Platform on the Cloud - Quickstart</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -110,7 +145,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/Kubernetes_introduction.html">Kubernetes</a></li><li class="breadcrumb-item"><a href="../pages/Backups_and_security.html">Backups and Security</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -188,7 +223,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../pages/Backups_and_security.html" class="sidebar-item-text sidebar-link active">
+  <a href="../pages/Backups_and_security.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Backups and Security</span></a>
   </div>
 </li>
@@ -227,153 +262,257 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#which-data" id="toc-which-data" class="nav-link active" data-scroll-target="#which-data">Which data</a>
+  <li><a href="#what-to-check-when-something-is-broken" id="toc-what-to-check-when-something-is-broken" class="nav-link active" data-scroll-target="#what-to-check-when-something-is-broken">What to check when something is broken</a>
   <ul class="collapse">
-  <li><a href="#personal-data" id="toc-personal-data" class="nav-link" data-scroll-target="#personal-data">Personal data</a></li>
-  <li><a href="#confidential-data" id="toc-confidential-data" class="nav-link" data-scroll-target="#confidential-data">Confidential data</a></li>
-  <li><a href="#passwords-keys" id="toc-passwords-keys" class="nav-link" data-scroll-target="#passwords-keys">Passwords &amp; keys</a></li>
-  </ul></li>
-  <li><a href="#backups" id="toc-backups" class="nav-link" data-scroll-target="#backups">Backups</a></li>
-  <li><a href="#security" id="toc-security" class="nav-link" data-scroll-target="#security">Security</a>
-  <ul class="collapse">
-  <li><a href="#defence-need-to-be-always-a-success-attack-need-only-one" id="toc-defence-need-to-be-always-a-success-attack-need-only-one" class="nav-link" data-scroll-target="#defence-need-to-be-always-a-success-attack-need-only-one">Defence need to be always a success, attack need only one</a></li>
-  <li><a href="#aspects-of-security" id="toc-aspects-of-security" class="nav-link" data-scroll-target="#aspects-of-security">Aspects of security</a></li>
-  <li><a href="#limits-of-security" id="toc-limits-of-security" class="nav-link" data-scroll-target="#limits-of-security">Limits of security</a></li>
-  <li><a href="#general-dispositions" id="toc-general-dispositions" class="nav-link" data-scroll-target="#general-dispositions">General dispositions</a></li>
-  <li><a href="#firewall" id="toc-firewall" class="nav-link" data-scroll-target="#firewall">Firewall</a></li>
-  <li><a href="#protections-against-attacks" id="toc-protections-against-attacks" class="nav-link" data-scroll-target="#protections-against-attacks">Protections against attacks</a></li>
-  <li><a href="#passwords-and-keys" id="toc-passwords-and-keys" class="nav-link" data-scroll-target="#passwords-and-keys">Passwords and keys</a></li>
-  <li><a href="#what-to-never-log-log-levels" id="toc-what-to-never-log-log-levels" class="nav-link" data-scroll-target="#what-to-never-log-log-levels">What to never log, log levels</a></li>
-  <li><a href="#what-to-never-store-or-never-in-reversible-format" id="toc-what-to-never-store-or-never-in-reversible-format" class="nav-link" data-scroll-target="#what-to-never-store-or-never-in-reversible-format">What to never store (or never in “reversible” format)</a></li>
-  <li><a href="#know-your-infrastructure" id="toc-know-your-infrastructure" class="nav-link" data-scroll-target="#know-your-infrastructure">Know your infrastructure</a></li>
-  <li><a href="#deleting-data" id="toc-deleting-data" class="nav-link" data-scroll-target="#deleting-data">Deleting data</a></li>
+  <li><a href="#is-the-service-running" id="toc-is-the-service-running" class="nav-link" data-scroll-target="#is-the-service-running">1. Is the service running?</a></li>
+  <li><a href="#check-the-logs-always" id="toc-check-the-logs-always" class="nav-link" data-scroll-target="#check-the-logs-always">2. Check the logs (always)</a></li>
+  <li><a href="#test-the-configuration" id="toc-test-the-configuration" class="nav-link" data-scroll-target="#test-the-configuration">3. Test the configuration</a></li>
+  <li><a href="#is-the-port-listening" id="toc-is-the-port-listening" class="nav-link" data-scroll-target="#is-the-port-listening">4. Is the port listening?</a></li>
+  <li><a href="#check-permissions" id="toc-check-permissions" class="nav-link" data-scroll-target="#check-permissions">5. Check permissions</a></li>
+  <li><a href="#disk-full" id="toc-disk-full" class="nav-link" data-scroll-target="#disk-full">6. Disk full?</a></li>
+  <li><a href="#memory-exhausted" id="toc-memory-exhausted" class="nav-link" data-scroll-target="#memory-exhausted">7. Memory exhausted?</a></li>
+  <li><a href="#test-locally" id="toc-test-locally" class="nav-link" data-scroll-target="#test-locally">8. Test locally</a></li>
+  <li><a href="#containers-involved" id="toc-containers-involved" class="nav-link" data-scroll-target="#containers-involved">9. Containers involved?</a></li>
+  <li><a href="#last-resort-checklist" id="toc-last-resort-checklist" class="nav-link" data-scroll-target="#last-resort-checklist">10. Last resort checklist</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/Kubernetes_introduction.html">Kubernetes</a></li><li class="breadcrumb-item"><a href="../pages/Backups_and_security.html">Backups and Security</a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title">Backups and Security</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="which-data" class="level1">
-<h1>Which data</h1>
-<p>One generally important aspect of Data Management and data usage is to know which data to store and how to store it.</p>
-<section id="personal-data" class="level2">
-<h2 class="anchored" data-anchor-id="personal-data">Personal data</h2>
-<p>In many countries storage of personal information is strictly regulated. In the EU, storage of personal data can be done only with consent, must be accessible by the user, can be deleted upon request and can be stored only for a limited time.</p>
-<p>TODO: Add links</p>
-<p>When some research data is linked to person, it is advised to pseudonymize or to anonymize the data.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The limitation of data storage for personal information includes backups</p>
-</div>
-</div>
+<section id="what-to-check-when-something-is-broken" class="level2">
+<h2 class="anchored" data-anchor-id="what-to-check-when-something-is-broken">What to check when something is broken</h2>
+<section id="is-the-service-running" class="level3">
+<h3 class="anchored" data-anchor-id="is-the-service-running">1. Is the service running?</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">systemctl</span> status apache2</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">systemctl</span> status nginx</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">systemctl</span> status docker</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>also (and mandatory if not run using systemd):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ps</span> <span class="at">-edf</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ps</span> <span class="at">-edf</span> <span class="kw">|</span> <span class="fu">grep</span> name_of_the_application</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>grep filters the lines of <em>ps -edf</em> where it finds name_of_the_application (actually of the process, so it might differ from what you might expect)</p>
+<p>If not:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">systemctl</span> start service</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>or, if not using systemd, check the documentation for the proper startup sequence.</p>
+<hr>
 </section>
-<section id="confidential-data" class="level2">
-<h2 class="anchored" data-anchor-id="confidential-data">Confidential data</h2>
-</section>
-<section id="passwords-keys" class="level2">
-<h2 class="anchored" data-anchor-id="passwords-keys">Passwords &amp; keys</h2>
-</section>
-</section>
-<section id="backups" class="level1">
-<h1>Backups</h1>
-<p>Backups are an inherent - and maybe the most important - part of security, as they protect from mishaps as well as actual attacks. They are evidently not enough if a software has any kind of shared usage. Any shared usage need some kind of security, not only public access. A good faith use of a software with the wrong privileges could have some bad consequences. Evidently such security starts with the software design and implementation, such as database constraints. This page will not speak about that.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Backups are for recoveries, public data should also be published in repositories.</p>
-</div>
-</div>
-<p>Backups tools -&gt; versioning, monitoring, differential and incremental backups and automation. Using non-backup tools need some parameters and/or script to get some of these functions. Monitoring the backup is working will be extremely important (“silent death”).</p>
-</section>
-<section id="security" class="level1">
-<h1>Security</h1>
-<section id="defence-need-to-be-always-a-success-attack-need-only-one" class="level2">
-<h2 class="anchored" data-anchor-id="defence-need-to-be-always-a-success-attack-need-only-one">Defence need to be always a success, attack need only one</h2>
-<p>One very important rule of security is that the attacker needs only one success. So it does not matter if many attempts are unsuccessful. They only need to try again. Thus defenders must adapt and monitor. It should be avoiding known vulnerabilies while trying to care for unknown ones.</p>
-</section>
-<section id="aspects-of-security" class="level2">
-<h2 class="anchored" data-anchor-id="aspects-of-security">Aspects of security</h2>
-<p>By security in an information system, we consider every aspect allowing the right use of the information system (including, but not only, the protection of data): Availability, integrity, confidentiality, trustworthiness, access control. It is important to know which of these aspects are needed in the system to build. The possible threats are then coming from: - the system users, not willingly doing any damage, - malicious persons, who want to access data or program, to damage the infrastructure, to cheat, to annoy, - malicious software, a software which will give a nuisance to other or abuse the resources (that can be unintentional), open the system to intrusions, - one disaster, a simple electric break, one bad manipulation, a fire, … It is very common that the regular users are gates for malicious persons. We speak here about social engineering: the weak point is the human-human relation. The famous Kevin Mitnick mostly used this system to intrude systems. A right information of the user is one way to fight against this kind of problem.</p>
-</section>
-<section id="limits-of-security" class="level2">
-<h2 class="anchored" data-anchor-id="limits-of-security">Limits of security</h2>
-<p>Security in computer software is very much alike security in the real-life: if you want your house to be totally secure, you have to push a 3 meter high concrete wall around with automatic machine guns. Not fun, not neighbour-friendly and not inhabitant-friendly too. The same rule applies in software development: you just cannot have a totally secured system, as nothing will be usable then (or with much difficulties). The fact is that, like in the real life, the user must show some respect to other users and to the software architecture, and we must protect the system mostly from deviant users. The problem is that, in computer world, all users are potentially deviant! You have to see the interface of the software as the public area of it: naturally, with many users, you can assume that they will try all, so you have to ensure that no dangerous parts are left in it. Doing so (part of the security by design), you remove the major part of potential thread from the users.</p>
-</section>
-<section id="general-dispositions" class="level2">
-<h2 class="anchored" data-anchor-id="general-dispositions">General dispositions</h2>
-<p>Default user not root (or super user if Windows)</p>
-<p>Careful with the paths and their access rights</p>
-<p>Symbolic links</p>
-<p>Database user, schema protections</p>
-<p>difficult configurations and their possible issues (such as .htaccess or apache configuration in general)</p>
-<p>Fail fast -&gt; difference between errors where the application needs to/can contine and when it needs to stop.</p>
-<p>???</p>
-</section>
-<section id="firewall" class="level2">
-<h2 class="anchored" data-anchor-id="firewall">Firewall</h2>
-</section>
-<section id="protections-against-attacks" class="level2">
-<h2 class="anchored" data-anchor-id="protections-against-attacks">Protections against attacks</h2>
-</section>
-<section id="passwords-and-keys" class="level2">
-<h2 class="anchored" data-anchor-id="passwords-and-keys">Passwords and keys</h2>
-</section>
-<section id="what-to-never-log-log-levels" class="level2">
-<h2 class="anchored" data-anchor-id="what-to-never-log-log-levels">What to never log, log levels</h2>
-<p>Log are incredibly useful and should be used for debugging purpose and for security (they are often the only way to detect a tentative of intrusion/code injection).</p>
-<p>For instance, it could be important to log all suspicious url paths are it might be a tentative of code injection, i.e.&nbsp;the attacker hoping that a mechanism in the code will execute a payload. A simple example would be executing raw SQL queries: * The URL subpath is /users/[name] where [name] is the name you want to look for. * The code will then simply execute “SELECT * FROM users WHERE name=[name];” * The attacker will use the URL subpath “/users/name”;DROP%20TABLE%20admin;%20 –“. * The code will execute”SELECT * FROM users WHERE name=“name”;DROP TABLE admin; –““. The end”–” is to comment the closing quote so it does not raise an error. * If the access right of the database is too permissible and an admin table exists, it will be dropped (but the example code is for illustration only, it might not work and in all cases it should not work).</p>
-<p>This is a really well known and simple example and no modern web framework or API should allow such attacks nowadays. But the actual issue is with unknow vulnerability. Going back to this example, the web application should log something like:</p>
-<p>“2025-11-23_2:32:22 - Warning - incorrect characters in path:”/users/name”;DROP%20TABLE%20admin;%20 –”</p>
-<p>And that would allow to check what was attempted.</p>
-<p>But logs are also plain text and, if accessed by an attacker, will be easy to comprehend. As such, there are information that should never been logged, and some that should be carefully logged:</p>
+<section id="check-the-logs-always" class="level3">
+<h3 class="anchored" data-anchor-id="check-the-logs-always">2. Check the logs (always)</h3>
+<p>Logs are <strong>the most important diagnostic tool</strong>. They usually explain <em>why</em> something failed, not just <em>that</em> it failed.</p>
+<section id="logs-location-may-vary" class="level4">
+<h4 class="anchored" data-anchor-id="logs-location-may-vary">Logs location may vary</h4>
+<p>While common default locations exist, <strong>log paths depend on the setup</strong>:</p>
 <ul>
-<li>username, password, keys, important DB table names (such as a users table used for login), should ideally never be written in a log file, even on DEBUG level and even on test. The reason for that is that everything that happen on test can happen on production. Amid a quick fix during an emergency, a test log entry can be forgiven and go to production. A fix on sensitive information can use the logs, but should be done in a very controlled way, without hurry, even during an emergency. A good way to proceed is to allow the log info only when needed, then switch it off (ideally remove the log entries) immediately after.</li>
-<li></li>
+<li>distribution (Debian, Ubuntu, RedHat, Alpine…)</li>
+<li>application configuration</li>
+<li>containerization (Docker)</li>
+<li>logging system (files vs journald)</li>
 </ul>
+<p>Typical locations:</p>
+<ul>
+<li><code>/var/log/</code></li>
+<li><code>/var/log/nginx/</code></li>
+<li><code>/var/log/apache2/</code></li>
+<li><code>/var/log/syslog</code></li>
+<li><code>/var/log/messages</code></li>
+<li>application-specific folders (e.g.&nbsp;<code>/opt/app/logs/</code>)</li>
+</ul>
+<p>If unsure:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> /var/log</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For <strong>systemd-managed services</strong>, logs may not be in files at all:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">journalctl</span> <span class="at">-u</span> service_name</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">journalctl</span> <span class="at">-xe</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
 </section>
-<section id="what-to-never-store-or-never-in-reversible-format" class="level2">
-<h2 class="anchored" data-anchor-id="what-to-never-store-or-never-in-reversible-format">What to never store (or never in “reversible” format)</h2>
+<section id="follow-logs-live" class="level4">
+<h4 class="anchored" data-anchor-id="follow-logs-live">Follow logs live</h4>
+<p>To observe what happens when an error occurs:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> <span class="at">-f</span> /var/log/nginx/error.log</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> <span class="at">-f</span> /var/log/apache2/error.log</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> logs <span class="at">-f</span> container_name</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This is extremely useful while restarting a service or reproducing an issue.</p>
+<hr>
 </section>
-<section id="know-your-infrastructure" class="level2">
-<h2 class="anchored" data-anchor-id="know-your-infrastructure">Know your infrastructure</h2>
+<section id="log-rotation" class="level4">
+<h4 class="anchored" data-anchor-id="log-rotation">Log rotation</h4>
+<p>Logs are <strong>rotated</strong> to prevent unlimited growth. Rotated logs usually appear as:</p>
+<ul>
+<li><code>error.log.1</code></li>
+<li><code>error.log.2</code></li>
+<li><code>error.log.3.gz</code></li>
+</ul>
+<p>Older logs are often <strong>compressed (<code>.gz</code>)</strong>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Log rotation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When investigating an issue that happened <em>yesterday or earlier</em>, always check rotated logs — the current log may no longer contain the relevant lines.</p>
+</div>
+</div>
+<p>To list rotated logs:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> /var/log/nginx/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
 </section>
-<section id="deleting-data" class="level2">
-<h2 class="anchored" data-anchor-id="deleting-data">Deleting data</h2>
+<section id="reading-long-logs-efficiently" class="level4">
+<h4 class="anchored" data-anchor-id="reading-long-logs-efficiently">Reading long logs efficiently</h4>
+<p>Use <strong>less</strong> (preferred over more):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span> /var/log/nginx/error.log</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Inside <code>less</code>:</p>
+<ul>
+<li><code>/text</code> → search forward</li>
+<li><code>n</code> / <code>N</code> (shift + N) → next / previous match</li>
+<li><code>G</code> → go to end of file</li>
+<li><code>g</code> → go to beginning</li>
+<li><code>q</code> → quit</li>
+</ul>
+<p>To jump directly to recent entries:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span> +G /var/log/nginx/error.log</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="searching-logs-with-grep" class="level4">
+<h4 class="anchored" data-anchor-id="searching-logs-with-grep">Searching logs with grep</h4>
+<p>To find relevant lines:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"error"</span> /var/log/nginx/error.log</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-i</span> <span class="st">"warning"</span> /var/log/syslog</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Useful options:</p>
+<ul>
+<li><code>-i</code> → case-insensitive</li>
+<li><code>-n</code> → show line numbers</li>
+<li><code>-C 3</code> → show context (3 lines before and after)</li>
+</ul>
+<p>Example:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-i</span> <span class="at">-n</span> <span class="at">-C</span> 2 <span class="st">"timeout"</span> error.log</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="searching-across-rotated-logs" class="level4">
+<h4 class="anchored" data-anchor-id="searching-across-rotated-logs">Searching across rotated logs</h4>
+<p>Include rotated (non-compressed) logs:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"error"</span> /var/log/nginx/error.log<span class="pp">*</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For <strong>compressed logs (<code>.gz</code>)</strong>, use <code>zgrep</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">zgrep</span> <span class="st">"error"</span> /var/log/nginx/error.log<span class="pp">*</span>.gz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>You can also combine both:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">"error"</span> /var/log/nginx/error.log<span class="pp">*</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">zgrep</span> <span class="st">"error"</span> /var/log/nginx/error.log<span class="pp">*</span>.gz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="combining-tools-very-common" class="level4">
+<h4 class="anchored" data-anchor-id="combining-tools-very-common">Combining tools (very common)</h4>
+<p>Search and then inspect results interactively:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-i</span> <span class="st">"error"</span> /var/log/nginx/error.log <span class="kw">|</span> <span class="fu">less</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">zgrep</span> <span class="at">-i</span> <span class="st">"error"</span> /var/log/nginx/error.log<span class="pp">*</span>.gz <span class="kw">|</span> <span class="fu">less</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Count occurrences:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-i</span> <span class="st">"error"</span> error.log <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="container-logs" class="level4">
+<h4 class="anchored" data-anchor-id="container-logs">Container logs</h4>
+<p>If using Docker:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> logs container_name</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> logs <span class="at">--since</span> 1h container_name</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> logs container_name <span class="kw">|</span> <span class="fu">grep</span> error</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Remember: container logs may not persist unless explicitly configured.</p>
+<hr>
+</section>
+<section id="what-to-look-for-first-in-logs" class="level4">
+<h4 class="anchored" data-anchor-id="what-to-look-for-first-in-logs">What to look for first in logs</h4>
+<p>Focus on:</p>
+<ul>
+<li><code>error</code></li>
+<li><code>exception</code></li>
+<li><code>permission denied</code></li>
+<li><code>timeout</code></li>
+<li><code>connection refused</code></li>
+<li><code>no such file</code></li>
+<li><code>out of memory</code></li>
+<li><code>segfault</code></li>
+</ul>
+<hr>
+<blockquote class="blockquote">
+<p><strong>Rule of thumb</strong> If something breaks, <strong>read the logs before changing anything</strong>. Most fixes become obvious once the correct log line is found.</p>
+</blockquote>
+</section>
+</section>
+<section id="test-the-configuration" class="level3">
+<h3 class="anchored" data-anchor-id="test-the-configuration">3. Test the configuration</h3>
+<p>Before restarting a web server:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apachectl</span> configtest</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="ex">nginx</span> <span class="at">-t</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Never restart blindly.</p>
+<hr>
+</section>
+<section id="is-the-port-listening" class="level3">
+<h3 class="anchored" data-anchor-id="is-the-port-listening">4. Is the port listening?</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ss</span> <span class="at">-tulpn</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">netstat</span> <span class="at">-tulpn</span>   <span class="co"># older systems</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Check if the expected port (80, 443, 8080…) is open.</p>
+<hr>
+</section>
+<section id="check-permissions" class="level3">
+<h3 class="anchored" data-anchor-id="check-permissions">5. Check permissions</h3>
+<p>Most deployment issues are permission issues.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">whoami</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Check:</p>
+<ul>
+<li>owner of files</li>
+<li>execution rights</li>
+<li>read access for the web server user</li>
+</ul>
+<hr>
+</section>
+<section id="disk-full" class="level3">
+<h3 class="anchored" data-anchor-id="disk-full">6. Disk full?</h3>
+<p>A full disk breaks everything.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">df</span> <span class="at">-h</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">du</span> <span class="at">-sh</span> /var/<span class="pp">*</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="memory-exhausted" class="level3">
+<h3 class="anchored" data-anchor-id="memory-exhausted">7. Memory exhausted?</h3>
+<p>OOM kills are silent but deadly.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">free</span> <span class="at">-h</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dmesg</span> <span class="kw">|</span> <span class="fu">tail</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="test-locally" class="level3">
+<h3 class="anchored" data-anchor-id="test-locally">8. Test locally</h3>
+<p>From the server itself:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> http://localhost</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> http://127.0.0.1:port</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If it fails locally, it will fail remotely.</p>
+<hr>
+</section>
+<section id="containers-involved" class="level3">
+<h3 class="anchored" data-anchor-id="containers-involved">9. Containers involved?</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> ps</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> logs container</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> inspect container</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Check:</p>
+<ul>
+<li>exposed ports</li>
+<li>mounted volumes</li>
+<li>environment variables</li>
+</ul>
+<hr>
+</section>
+<section id="last-resort-checklist" class="level3">
+<h3 class="anchored" data-anchor-id="last-resort-checklist">10. Last resort checklist</h3>
+<ul>
+<li>Restart only <strong>after</strong> checking logs</li>
+<li>Restart one component at a time</li>
+<li>Document what you changed</li>
+<li>If unsure: <strong>stop and read logs again</strong></li>
+</ul>
 
 
 </section>

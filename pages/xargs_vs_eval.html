@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Backups and Security – De.KCD - Data Management Platform on the Cloud - Quickstart</title>
+<title>xargs_vs_eval – De.KCD - Data Management Platform on the Cloud - Quickstart</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -110,7 +145,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/Kubernetes_introduction.html">Kubernetes</a></li><li class="breadcrumb-item"><a href="../pages/Backups_and_security.html">Backups and Security</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -188,7 +223,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../pages/Backups_and_security.html" class="sidebar-item-text sidebar-link active">
+  <a href="../pages/Backups_and_security.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Backups and Security</span></a>
   </div>
 </li>
@@ -227,156 +262,112 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#which-data" id="toc-which-data" class="nav-link active" data-scroll-target="#which-data">Which data</a>
-  <ul class="collapse">
-  <li><a href="#personal-data" id="toc-personal-data" class="nav-link" data-scroll-target="#personal-data">Personal data</a></li>
-  <li><a href="#confidential-data" id="toc-confidential-data" class="nav-link" data-scroll-target="#confidential-data">Confidential data</a></li>
-  <li><a href="#passwords-keys" id="toc-passwords-keys" class="nav-link" data-scroll-target="#passwords-keys">Passwords &amp; keys</a></li>
-  </ul></li>
-  <li><a href="#backups" id="toc-backups" class="nav-link" data-scroll-target="#backups">Backups</a></li>
-  <li><a href="#security" id="toc-security" class="nav-link" data-scroll-target="#security">Security</a>
-  <ul class="collapse">
-  <li><a href="#defence-need-to-be-always-a-success-attack-need-only-one" id="toc-defence-need-to-be-always-a-success-attack-need-only-one" class="nav-link" data-scroll-target="#defence-need-to-be-always-a-success-attack-need-only-one">Defence need to be always a success, attack need only one</a></li>
-  <li><a href="#aspects-of-security" id="toc-aspects-of-security" class="nav-link" data-scroll-target="#aspects-of-security">Aspects of security</a></li>
-  <li><a href="#limits-of-security" id="toc-limits-of-security" class="nav-link" data-scroll-target="#limits-of-security">Limits of security</a></li>
-  <li><a href="#general-dispositions" id="toc-general-dispositions" class="nav-link" data-scroll-target="#general-dispositions">General dispositions</a></li>
-  <li><a href="#firewall" id="toc-firewall" class="nav-link" data-scroll-target="#firewall">Firewall</a></li>
-  <li><a href="#protections-against-attacks" id="toc-protections-against-attacks" class="nav-link" data-scroll-target="#protections-against-attacks">Protections against attacks</a></li>
-  <li><a href="#passwords-and-keys" id="toc-passwords-and-keys" class="nav-link" data-scroll-target="#passwords-and-keys">Passwords and keys</a></li>
-  <li><a href="#what-to-never-log-log-levels" id="toc-what-to-never-log-log-levels" class="nav-link" data-scroll-target="#what-to-never-log-log-levels">What to never log, log levels</a></li>
-  <li><a href="#what-to-never-store-or-never-in-reversible-format" id="toc-what-to-never-store-or-never-in-reversible-format" class="nav-link" data-scroll-target="#what-to-never-store-or-never-in-reversible-format">What to never store (or never in “reversible” format)</a></li>
-  <li><a href="#know-your-infrastructure" id="toc-know-your-infrastructure" class="nav-link" data-scroll-target="#know-your-infrastructure">Know your infrastructure</a></li>
-  <li><a href="#deleting-data" id="toc-deleting-data" class="nav-link" data-scroll-target="#deleting-data">Deleting data</a></li>
-  </ul></li>
+  <li><a href="#xargs-vs-eval-important-distinction" id="toc-xargs-vs-eval-important-distinction" class="nav-link active" data-scroll-target="#xargs-vs-eval-important-distinction">xargs vs eval (important distinction)</a></li>
+  <li><a href="#rule-of-thumb" id="toc-rule-of-thumb" class="nav-link" data-scroll-target="#rule-of-thumb">Rule of thumb</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/Kubernetes_introduction.html">Kubernetes</a></li><li class="breadcrumb-item"><a href="../pages/Backups_and_security.html">Backups and Security</a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title">Backups and Security</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="which-data" class="level1">
-<h1>Which data</h1>
-<p>One generally important aspect of Data Management and data usage is to know which data to store and how to store it.</p>
-<section id="personal-data" class="level2">
-<h2 class="anchored" data-anchor-id="personal-data">Personal data</h2>
-<p>In many countries storage of personal information is strictly regulated. In the EU, storage of personal data can be done only with consent, must be accessible by the user, can be deleted upon request and can be stored only for a limited time.</p>
-<p>TODO: Add links</p>
-<p>When some research data is linked to person, it is advised to pseudonymize or to anonymize the data.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The limitation of data storage for personal information includes backups</p>
-</div>
-</div>
-</section>
-<section id="confidential-data" class="level2">
-<h2 class="anchored" data-anchor-id="confidential-data">Confidential data</h2>
-</section>
-<section id="passwords-keys" class="level2">
-<h2 class="anchored" data-anchor-id="passwords-keys">Passwords &amp; keys</h2>
-</section>
-</section>
-<section id="backups" class="level1">
-<h1>Backups</h1>
-<p>Backups are an inherent - and maybe the most important - part of security, as they protect from mishaps as well as actual attacks. They are evidently not enough if a software has any kind of shared usage. Any shared usage need some kind of security, not only public access. A good faith use of a software with the wrong privileges could have some bad consequences. Evidently such security starts with the software design and implementation, such as database constraints. This page will not speak about that.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Backups are for recoveries, public data should also be published in repositories.</p>
-</div>
-</div>
-<p>Backups tools -&gt; versioning, monitoring, differential and incremental backups and automation. Using non-backup tools need some parameters and/or script to get some of these functions. Monitoring the backup is working will be extremely important (“silent death”).</p>
-</section>
-<section id="security" class="level1">
-<h1>Security</h1>
-<section id="defence-need-to-be-always-a-success-attack-need-only-one" class="level2">
-<h2 class="anchored" data-anchor-id="defence-need-to-be-always-a-success-attack-need-only-one">Defence need to be always a success, attack need only one</h2>
-<p>One very important rule of security is that the attacker needs only one success. So it does not matter if many attempts are unsuccessful. They only need to try again. Thus defenders must adapt and monitor. It should be avoiding known vulnerabilies while trying to care for unknown ones.</p>
-</section>
-<section id="aspects-of-security" class="level2">
-<h2 class="anchored" data-anchor-id="aspects-of-security">Aspects of security</h2>
-<p>By security in an information system, we consider every aspect allowing the right use of the information system (including, but not only, the protection of data): Availability, integrity, confidentiality, trustworthiness, access control. It is important to know which of these aspects are needed in the system to build. The possible threats are then coming from: - the system users, not willingly doing any damage, - malicious persons, who want to access data or program, to damage the infrastructure, to cheat, to annoy, - malicious software, a software which will give a nuisance to other or abuse the resources (that can be unintentional), open the system to intrusions, - one disaster, a simple electric break, one bad manipulation, a fire, … It is very common that the regular users are gates for malicious persons. We speak here about social engineering: the weak point is the human-human relation. The famous Kevin Mitnick mostly used this system to intrude systems. A right information of the user is one way to fight against this kind of problem.</p>
-</section>
-<section id="limits-of-security" class="level2">
-<h2 class="anchored" data-anchor-id="limits-of-security">Limits of security</h2>
-<p>Security in computer software is very much alike security in the real-life: if you want your house to be totally secure, you have to push a 3 meter high concrete wall around with automatic machine guns. Not fun, not neighbour-friendly and not inhabitant-friendly too. The same rule applies in software development: you just cannot have a totally secured system, as nothing will be usable then (or with much difficulties). The fact is that, like in the real life, the user must show some respect to other users and to the software architecture, and we must protect the system mostly from deviant users. The problem is that, in computer world, all users are potentially deviant! You have to see the interface of the software as the public area of it: naturally, with many users, you can assume that they will try all, so you have to ensure that no dangerous parts are left in it. Doing so (part of the security by design), you remove the major part of potential thread from the users.</p>
-</section>
-<section id="general-dispositions" class="level2">
-<h2 class="anchored" data-anchor-id="general-dispositions">General dispositions</h2>
-<p>Default user not root (or super user if Windows)</p>
-<p>Careful with the paths and their access rights</p>
-<p>Symbolic links</p>
-<p>Database user, schema protections</p>
-<p>difficult configurations and their possible issues (such as .htaccess or apache configuration in general)</p>
-<p>Fail fast -&gt; difference between errors where the application needs to/can contine and when it needs to stop.</p>
-<p>???</p>
-</section>
-<section id="firewall" class="level2">
-<h2 class="anchored" data-anchor-id="firewall">Firewall</h2>
-</section>
-<section id="protections-against-attacks" class="level2">
-<h2 class="anchored" data-anchor-id="protections-against-attacks">Protections against attacks</h2>
-</section>
-<section id="passwords-and-keys" class="level2">
-<h2 class="anchored" data-anchor-id="passwords-and-keys">Passwords and keys</h2>
-</section>
-<section id="what-to-never-log-log-levels" class="level2">
-<h2 class="anchored" data-anchor-id="what-to-never-log-log-levels">What to never log, log levels</h2>
-<p>Log are incredibly useful and should be used for debugging purpose and for security (they are often the only way to detect a tentative of intrusion/code injection).</p>
-<p>For instance, it could be important to log all suspicious url paths are it might be a tentative of code injection, i.e.&nbsp;the attacker hoping that a mechanism in the code will execute a payload. A simple example would be executing raw SQL queries: * The URL subpath is /users/[name] where [name] is the name you want to look for. * The code will then simply execute “SELECT * FROM users WHERE name=[name];” * The attacker will use the URL subpath “/users/name”;DROP%20TABLE%20admin;%20 –“. * The code will execute”SELECT * FROM users WHERE name=“name”;DROP TABLE admin; –““. The end”–” is to comment the closing quote so it does not raise an error. * If the access right of the database is too permissible and an admin table exists, it will be dropped (but the example code is for illustration only, it might not work and in all cases it should not work).</p>
-<p>This is a really well known and simple example and no modern web framework or API should allow such attacks nowadays. But the actual issue is with unknow vulnerability. Going back to this example, the web application should log something like:</p>
-<p>“2025-11-23_2:32:22 - Warning - incorrect characters in path:”/users/name”;DROP%20TABLE%20admin;%20 –”</p>
-<p>And that would allow to check what was attempted.</p>
-<p>But logs are also plain text and, if accessed by an attacker, will be easy to comprehend. As such, there are information that should never been logged, and some that should be carefully logged:</p>
 <ul>
-<li>username, password, keys, important DB table names (such as a users table used for login), should ideally never be written in a log file, even on DEBUG level and even on test. The reason for that is that everything that happen on test can happen on production. Amid a quick fix during an emergency, a test log entry can be forgiven and go to production. A fix on sensitive information can use the logs, but should be done in a very controlled way, without hurry, even during an emergency. A good way to proceed is to allow the log info only when needed, then switch it off (ideally remove the log entries) immediately after.</li>
-<li></li>
+<li><p><strong>xargs</strong> → build and execute a command from standard input <code>xargs</code> takes a list of items produced by another command (via a pipe <code>|</code>) and passes them as <strong>arguments</strong> to a command.</p>
+<p>This is useful because many commands <strong>do not read from standard input</strong>, but only accept arguments on the command line.</p>
+<p><strong>Examples:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">find</span> . <span class="at">-name</span> <span class="st">"*.log"</span> <span class="kw">|</span> <span class="fu">xargs</span> rm</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>What this does:</strong></p>
+<ol type="1">
+<li><p><code>find . -name "*.log"</code> → searches recursively for all files ending in <code>.log</code></p></li>
+<li><p>The list of found files is sent through the pipe (<code>|</code>)</p></li>
+<li><p><code>xargs rm</code> → converts that list into:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> file1.log file2.log file3.log ...</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+</ol>
+<p>In short: <strong>delete all <code>.log</code> files found in the directory tree</strong>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-l</span> <span class="st">"ERROR"</span> <span class="pp">*</span>.log <span class="kw">|</span> <span class="fu">xargs</span> less</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>What this does:</strong></p>
+<ol type="1">
+<li><code>grep -l "ERROR" *.log</code> → lists the names of <code>.log</code> files that contain the word <code>ERROR</code></li>
+<li><code>xargs less</code> → opens those files one after another in the pager <code>less</code></li>
+</ol>
+<p>In short: <strong>interactively inspect only the log files that contain errors</strong>.</p>
+<p><strong>Safety notes:</strong></p>
+<ul>
+<li><p><code>xargs</code> will apply the command to <em>all</em> received items</p></li>
+<li><p>Use <code>xargs -n 1</code> to process one item at a time</p></li>
+<li><p>Test first with <code>echo</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">find</span> . <span class="at">-name</span> <span class="st">"*.log"</span> <span class="kw">|</span> <span class="fu">xargs</span> echo rm</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 </ul>
+<p>For filenames containing spaces or special characters, prefer:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">find</span> . <span class="at">-name</span> <span class="st">"*.log"</span> <span class="at">-print0</span> <span class="kw">|</span> <span class="fu">xargs</span> <span class="at">-0</span> rm</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+</ul>
+<hr>
+<section id="xargs-vs-eval-important-distinction" class="level3">
+<h3 class="anchored" data-anchor-id="xargs-vs-eval-important-distinction">xargs vs eval (important distinction)</h3>
+<p>Both <code>xargs</code> and <code>eval</code> execute commands, but <strong>they are fundamentally different and used for different purposes</strong>.</p>
+<section id="xargs" class="level4">
+<h4 class="anchored" data-anchor-id="xargs">xargs</h4>
+<ul>
+<li><p>Takes <strong>data</strong> (file names, IDs, paths) and passes it as <strong>arguments</strong></p></li>
+<li><p>Does <strong>not interpret</strong> the input as shell code</p></li>
+<li><p>Much <strong>safer</strong> for automation</p></li>
+<li><p>Best used with:</p>
+<ul>
+<li><code>find</code></li>
+<li><code>grep</code></li>
+<li><code>ps</code></li>
+<li>log files</li>
+<li>batch operations</li>
+</ul></li>
+</ul>
+<p><strong>Typical use case:</strong></p>
+<blockquote class="blockquote">
+<p>“I have a list of files/processes, and I want to apply a command to all of them.”</p>
+</blockquote>
+<hr>
 </section>
-<section id="what-to-never-store-or-never-in-reversible-format" class="level2">
-<h2 class="anchored" data-anchor-id="what-to-never-store-or-never-in-reversible-format">What to never store (or never in “reversible” format)</h2>
+<section id="eval" class="level4">
+<h4 class="anchored" data-anchor-id="eval">eval</h4>
+<ul>
+<li>Takes a <strong>string</strong> and executes it as a <strong>shell command</strong></li>
+<li>The shell interprets variables, quotes, substitutions, etc.</li>
+<li><strong>Dangerous if input is not fully controlled</strong></li>
+<li>Often unnecessary and should be avoided unless strictly needed</li>
+</ul>
+<p>Example:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="va">cmd</span><span class="op">=</span><span class="st">"rm -rf /tmp/test"</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">eval</span> <span class="st">"</span><span class="va">$cmd</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Here, <code>eval</code> asks the shell to <strong>re-interpret the string as code</strong>.</p>
+<p><strong>Typical use case:</strong></p>
+<blockquote class="blockquote">
+<p>“I am dynamically building a shell command inside a script and must execute it.”</p>
+</blockquote>
+<hr>
 </section>
-<section id="know-your-infrastructure" class="level2">
-<h2 class="anchored" data-anchor-id="know-your-infrastructure">Know your infrastructure</h2>
 </section>
-<section id="deleting-data" class="level2">
-<h2 class="anchored" data-anchor-id="deleting-data">Deleting data</h2>
+<section id="rule-of-thumb" class="level3">
+<h3 class="anchored" data-anchor-id="rule-of-thumb">Rule of thumb</h3>
+<ul>
+<li><p>Use <strong>xargs</strong> when:</p>
+<ul>
+<li>You are processing lists of files, IDs, or paths</li>
+<li>Data comes from another command</li>
+<li>You want safety and predictability</li>
+</ul></li>
+<li><p>Avoid <strong>eval</strong> unless:</p>
+<ul>
+<li>You fully control the input</li>
+<li>You clearly understand why normal command execution is insufficient</li>
+</ul></li>
+</ul>
+<blockquote class="blockquote">
+<p><strong>Security note</strong> In scripts, the presence of <code>eval</code> should immediately raise attention. In most cases, <code>xargs</code>, arrays, or direct command execution are safer alternatives.</p>
+</blockquote>
+<hr>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
