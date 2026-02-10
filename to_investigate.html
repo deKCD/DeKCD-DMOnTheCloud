@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -37,7 +37,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-29a19b5acbeac218a8c860e48340d4df.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -335,6 +335,10 @@ ul.task-list li input[type="checkbox"] {
 <p>[1]+ Killed bundle exec puma -C docker/puma.rb</p>
 <p>Do the simplest setup-&gt; from a docker command line use docker to docker-compose. If possible it is better than to try from a complex docker compose. Then kompose.</p>
 <p>Using kompose probably a good idea to remove env variable then extract them later (to check more)</p>
+<p>Object storage: REST, no specific port or protocol Minio mimic folder structure (others ?) RClone S3: encrypt data</p>
+<p>Fake bucket locks? Admin cannot (force) delete locked object?</p>
+<p>Monitoring needed even with object lock Limit of # versions</p>
+<p>OpenStack: Swift or Ceph using a Gateway (also supporting Swift) Swift: integrate with Keystone Better to avoid Swift Objects have meta-data</p>
 
 
 </section>
