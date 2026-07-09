@@ -18,6 +18,17 @@ We will also compile advices and tips, and we welcome all contributions (and cor
 
 Finally it is targeted mostly at Research Projects and/or Institutions so focus on the particular aspects in this cases. By Data Management Platforms we mean an online application with a data repository (database or other), such as those listed in our [Data Management Platforms registry](https://dekcd.github.io/FAIR-DMP-Registry/)
 
+# Before and beyond: RDMKit
+
+While the guide is only focused on technical aspects and consideration, RDMKit covers most aspects of Research Data Management, including technical considerations which are out of the scope of this guide. It also provides links to related resources.
+
+The starting page related to the guide is [Research Software Engineer](https://rdmkit.elixir-europe.org/research_software_engineer).
+
+
+Generally, it is a good idea to start with RDMKit, then use these guide for a deeper technical view as introduction to online documentations or books. RDMKit is also strongly recommended for all aspects of Research Data Management.
+
+We will try to provide links for the relevant RDMKit pages in the related sections.
+
 # How to use
 
 Each section assumes that you know the precedents. If you already know one section, feel free to jump to the next one.

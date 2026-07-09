@@ -135,3 +135,8 @@ Objects have meta-data
 Use kubectl describe pod ... to find the node running your Pod and the container ID (docker://...)
 SSH into the node
 Run docker exec -it -u root CONTAINER_ID /bin/bash
+
+RDMKit relevant pages (in the order of the left menu):
+
+https://rdmkit.elixir-europe.org/research_software_engineer
+
