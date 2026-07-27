@@ -11,6 +11,11 @@ OpenStack is very complex to set-up and quite complex to use and should probably
 
 ProxMox could be a solution *if* there is a need for multiple servers that is *not satisfied* by your IT offering and you have *enough persons and time* (probably one person full time at minimum).
 :::
+
+:::{.callout-note}
+The decision tree for which technical platform to use will always come after a [Data Management Plan](https://rdmkit.elixir-europe.org/data_management_plan)
+:::
+
 ```{mermaid}
 flowchart TD
 	A["Start - to repeat for each platform for an assembly"] --> B

@@ -3,7 +3,11 @@ title: "Data Storage"
 number-sections: true
 ---
 
-Evidently, an important part of Data Management is the storage of data. 
+Evidently, an important part of Data Management is the storage of data.
+
+## FAIR considerations and wider context: RDMKit
+
+For a wider context on data storage, please refer to the [RDMKit](https://rdmkit.elixir-europe.org/storage), which provides a comprehensive overview of storage solutions within the FAIR data principles.
 
 ## Volumes: Keeping Data Alive
 
