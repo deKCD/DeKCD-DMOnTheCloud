@@ -1,67 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://deKCD.github.io/DeKCD-DMOnTheCloud/pages/Kubernetes_introduction.html</loc>
-    <lastmod>2026-07-27T13:57:33.546Z</lastmod>
-  </url>
-  <url>
-    <loc>https://deKCD.github.io/DeKCD-DMOnTheCloud/pages/Basic_web_apps_troubleshooting.html</loc>
-    <lastmod>2026-07-27T13:57:33.546Z</lastmod>
-  </url>
-  <url>
-    <loc>https://deKCD.github.io/DeKCD-DMOnTheCloud/pages/DM_planning.html</loc>
-    <lastmod>2026-07-27T13:57:33.546Z</lastmod>
-  </url>
-  <url>
-    <loc>https://deKCD.github.io/DeKCD-DMOnTheCloud/pages/Pseudonymization.html</loc>
-    <lastmod>2026-07-27T13:57:33.546Z</lastmod>
-  </url>
-  <url>
-    <loc>https://deKCD.github.io/DeKCD-DMOnTheCloud/pages/TechPlatformDecisionTree.html</loc>
-    <lastmod>2026-07-27T13:57:33.546Z</lastmod>
-  </url>
-  <url>
-    <loc>https://deKCD.github.io/DeKCD-DMOnTheCloud/to_investigate.html</loc>
-    <lastmod>2026-07-27T13:57:33.546Z</lastmod>
-  </url>
-  <url>
-    <loc>https://deKCD.github.io/DeKCD-DMOnTheCloud/static_md/tutorials_links.html</loc>
-    <lastmod>2026-07-27T13:57:33.546Z</lastmod>
-  </url>
-  <url>
-    <loc>https://deKCD.github.io/DeKCD-DMOnTheCloud/index_bak.html</loc>
-    <lastmod>2026-07-27T13:57:33.545Z</lastmod>
-  </url>
-  <url>
-    <loc>https://deKCD.github.io/DeKCD-DMOnTheCloud/about.html</loc>
-    <lastmod>2026-07-27T13:57:33.545Z</lastmod>
+    <loc>https://deKCD.github.io/DeKCD-DMOnTheCloud/index copy.html</loc>
+    <lastmod>2026-11-05T08:00:38.135Z</lastmod>
   </url>
   <url>
     <loc>https://deKCD.github.io/DeKCD-DMOnTheCloud/roadblocks.html</loc>
-    <lastmod>2026-07-27T13:57:33.546Z</lastmod>
+    <lastmod>2026-11-05T08:00:38.137Z</lastmod>
   </url>
   <url>
-    <loc>https://deKCD.github.io/DeKCD-DMOnTheCloud/index copy.html</loc>
-    <lastmod>2026-07-27T13:57:33.545Z</lastmod>
+    <loc>https://deKCD.github.io/DeKCD-DMOnTheCloud/pages/Building_an_assembly.html</loc>
+    <lastmod>2026-11-05T08:00:38.136Z</lastmod>
   </url>
   <url>
-    <loc>https://deKCD.github.io/DeKCD-DMOnTheCloud/index.html</loc>
-    <lastmod>2026-07-27T13:57:33.545Z</lastmod>
+    <loc>https://deKCD.github.io/DeKCD-DMOnTheCloud/pages/Kubernetes_introduction.html</loc>
+    <lastmod>2026-11-05T08:00:38.136Z</lastmod>
   </url>
   <url>
-    <loc>https://deKCD.github.io/DeKCD-DMOnTheCloud/pages/Costs_Limits_Troubleshooting.html</loc>
-    <lastmod>2026-07-27T13:57:33.546Z</lastmod>
+    <loc>https://deKCD.github.io/DeKCD-DMOnTheCloud/pages/General_considerations_LLM.html</loc>
+    <lastmod>2026-11-05T08:00:38.136Z</lastmod>
   </url>
   <url>
-    <loc>https://deKCD.github.io/DeKCD-DMOnTheCloud/pages/Backups_and_security.html</loc>
-    <lastmod>2026-07-27T13:57:33.546Z</lastmod>
+    <loc>https://deKCD.github.io/DeKCD-DMOnTheCloud/pages/TechPlatformDecisionTree.html</loc>
+    <lastmod>2026-11-05T08:00:38.137Z</lastmod>
+  </url>
+  <url>
+    <loc>https://deKCD.github.io/DeKCD-DMOnTheCloud/pages/Basic_web_apps_troubleshooting.html</loc>
+    <lastmod>2026-11-05T08:00:38.136Z</lastmod>
+  </url>
+  <url>
+    <loc>https://deKCD.github.io/DeKCD-DMOnTheCloud/pages/SemanticGraphs.html</loc>
+    <lastmod>2026-11-05T08:00:38.137Z</lastmod>
   </url>
   <url>
     <loc>https://deKCD.github.io/DeKCD-DMOnTheCloud/pages/privacy.html</loc>
-    <lastmod>2026-07-27T13:57:33.546Z</lastmod>
+    <lastmod>2026-11-05T08:00:38.137Z</lastmod>
+  </url>
+  <url>
+    <loc>https://deKCD.github.io/DeKCD-DMOnTheCloud/index.html</loc>
+    <lastmod>2026-11-05T08:00:38.136Z</lastmod>
+  </url>
+  <url>
+    <loc>https://deKCD.github.io/DeKCD-DMOnTheCloud/to_investigate.html</loc>
+    <lastmod>2026-11-05T08:00:38.137Z</lastmod>
+  </url>
+  <url>
+    <loc>https://deKCD.github.io/DeKCD-DMOnTheCloud/index_bak.html</loc>
+    <lastmod>2026-11-05T08:00:38.136Z</lastmod>
+  </url>
+  <url>
+    <loc>https://deKCD.github.io/DeKCD-DMOnTheCloud/pages/Costs_Limits_Troubleshooting.html</loc>
+    <lastmod>2026-11-05T08:00:38.136Z</lastmod>
+  </url>
+  <url>
+    <loc>https://deKCD.github.io/DeKCD-DMOnTheCloud/pages/draft.html</loc>
+    <lastmod>2026-11-05T08:00:38.137Z</lastmod>
+  </url>
+  <url>
+    <loc>https://deKCD.github.io/DeKCD-DMOnTheCloud/pages/Pseudonymization.html</loc>
+    <lastmod>2026-11-05T08:00:38.137Z</lastmod>
   </url>
   <url>
     <loc>https://deKCD.github.io/DeKCD-DMOnTheCloud/pages/Data_storage.html</loc>
-    <lastmod>2026-07-27T13:57:33.546Z</lastmod>
+    <lastmod>2026-11-05T08:00:38.136Z</lastmod>
+  </url>
+  <url>
+    <loc>https://deKCD.github.io/DeKCD-DMOnTheCloud/pages/Backups_and_security.html</loc>
+    <lastmod>2026-11-05T08:00:38.136Z</lastmod>
+  </url>
+  <url>
+    <loc>https://deKCD.github.io/DeKCD-DMOnTheCloud/pages/DM_planning.html</loc>
+    <lastmod>2026-11-05T08:00:38.136Z</lastmod>
+  </url>
+  <url>
+    <loc>https://deKCD.github.io/DeKCD-DMOnTheCloud/static_md/tutorials_links.html</loc>
+    <lastmod>2026-11-05T08:00:38.137Z</lastmod>
+  </url>
+  <url>
+    <loc>https://deKCD.github.io/DeKCD-DMOnTheCloud/about.html</loc>
+    <lastmod>2026-11-05T08:00:38.135Z</lastmod>
   </url>
 </urlset>
