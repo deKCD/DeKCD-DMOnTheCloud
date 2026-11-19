@@ -48,7 +48,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-c5dc8b3377cebca0877afaf520cac507.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-ce0f0d1e95892c391167071f7e5e54e4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -162,7 +162,7 @@ cookieconsent.run({
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item">Building an Assembly</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../pages/Building_an_assembly.html">Building an Assembly</a></li></ol></nav>
         <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -190,6 +190,18 @@ cookieconsent.run({
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../onboarding.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Onboarding</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../navigation-overview-short.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Navigation guide</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../pages/TechPlatformDecisionTree.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Technical Platform decision tree for Data Management Platforms</span></a>
   </div>
@@ -210,6 +222,24 @@ cookieconsent.run({
   <div class="sidebar-item-container"> 
   <a href="../pages/Pseudonymization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Pseudonymization</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/Building_an_assembly.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Building an Assembly</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/SemanticGraphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semantic graphs</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pages/General_considerations_LLM.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">General Considerations for Using LLMs in Research Data Management</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -236,23 +266,26 @@ cookieconsent.run({
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-is-an-assembly" id="toc-what-is-an-assembly" class="nav-link active" data-scroll-target="#what-is-an-assembly"><span class="header-section-number">1</span> What is an assembly?</a></li>
-  <li><a href="#keep-it-simple" id="toc-keep-it-simple" class="nav-link" data-scroll-target="#keep-it-simple"><span class="header-section-number">2</span> Keep it simple</a>
+  <li><a href="#sec-what-is-an-assembly" id="toc-sec-what-is-an-assembly" class="nav-link active" data-scroll-target="#sec-what-is-an-assembly"><span class="header-section-number">1</span> What is an assembly?</a></li>
+  <li><a href="#sec-keep-it-simple" id="toc-sec-keep-it-simple" class="nav-link" data-scroll-target="#sec-keep-it-simple"><span class="header-section-number">2</span> Keep it simple</a>
   <ul class="collapse">
   <li><a href="#small-tools" id="toc-small-tools" class="nav-link" data-scroll-target="#small-tools"><span class="header-section-number">2.1</span> Small tools</a></li>
+  <li><a href="#avoid-using-the-wrong-tools" id="toc-avoid-using-the-wrong-tools" class="nav-link" data-scroll-target="#avoid-using-the-wrong-tools"><span class="header-section-number">2.2</span> Avoid using the wrong tools</a></li>
   </ul></li>
-  <li><a href="#avoid-using-the-wrong-tools" id="toc-avoid-using-the-wrong-tools" class="nav-link" data-scroll-target="#avoid-using-the-wrong-tools"><span class="header-section-number">3</span> Avoid using the wrong tools</a></li>
-  <li><a href="#concerns-with-assemblies" id="toc-concerns-with-assemblies" class="nav-link" data-scroll-target="#concerns-with-assemblies"><span class="header-section-number">4</span> Concerns with assemblies</a></li>
-  <li><a href="#connecting-using-apis" id="toc-connecting-using-apis" class="nav-link" data-scroll-target="#connecting-using-apis"><span class="header-section-number">5</span> Connecting using APIs</a></li>
-  <li><a href="#avoid-several-logins-central-identity-management" id="toc-avoid-several-logins-central-identity-management" class="nav-link" data-scroll-target="#avoid-several-logins-central-identity-management"><span class="header-section-number">6</span> Avoid several logins: central identity management</a></li>
-  <li><a href="#assemblies-between-institutions" id="toc-assemblies-between-institutions" class="nav-link" data-scroll-target="#assemblies-between-institutions"><span class="header-section-number">7</span> Assemblies between institutions</a></li>
-  <li><a href="#using-a-llm-to-build-an-assembly" id="toc-using-a-llm-to-build-an-assembly" class="nav-link" data-scroll-target="#using-a-llm-to-build-an-assembly"><span class="header-section-number">8</span> Using a LLM to build an assembly</a>
+  <li><a href="#sec-assembly-concerns" id="toc-sec-assembly-concerns" class="nav-link" data-scroll-target="#sec-assembly-concerns"><span class="header-section-number">3</span> Concerns with assemblies</a>
   <ul class="collapse">
-  <li><a href="#as-a-general-help-with-online-llms" id="toc-as-a-general-help-with-online-llms" class="nav-link" data-scroll-target="#as-a-general-help-with-online-llms"><span class="header-section-number">8.1</span> As a general help with online LLMs</a></li>
-  <li><a href="#with-a-local-llm-aside-the-assembly" id="toc-with-a-local-llm-aside-the-assembly" class="nav-link" data-scroll-target="#with-a-local-llm-aside-the-assembly"><span class="header-section-number">8.2</span> With a local LLM aside the assembly</a>
+  <li><a href="#security-and-privacy" id="toc-security-and-privacy" class="nav-link" data-scroll-target="#security-and-privacy"><span class="header-section-number">3.1</span> Security and privacy</a></li>
+  </ul></li>
+  <li><a href="#sec-assembly-apis" id="toc-sec-assembly-apis" class="nav-link" data-scroll-target="#sec-assembly-apis"><span class="header-section-number">4</span> Connecting using APIs</a></li>
+  <li><a href="#sec-central-identity" id="toc-sec-central-identity" class="nav-link" data-scroll-target="#sec-central-identity"><span class="header-section-number">5</span> Avoid several logins: central identity management</a></li>
+  <li><a href="#sec-assemblies-between-institutions" id="toc-sec-assemblies-between-institutions" class="nav-link" data-scroll-target="#sec-assemblies-between-institutions"><span class="header-section-number">6</span> Assemblies between institutions</a></li>
+  <li><a href="#sec-using-llm-in-assembly" id="toc-sec-using-llm-in-assembly" class="nav-link" data-scroll-target="#sec-using-llm-in-assembly"><span class="header-section-number">7</span> Using a LLM to build an assembly</a>
   <ul class="collapse">
-  <li><a href="#semantic-graphs-api-documentation-and-llms" id="toc-semantic-graphs-api-documentation-and-llms" class="nav-link" data-scroll-target="#semantic-graphs-api-documentation-and-llms"><span class="header-section-number">8.2.1</span> Semantic graphs, API documentation and LLMs</a></li>
-  <li><a href="#semantic-graphs-and-assemblies" id="toc-semantic-graphs-and-assemblies" class="nav-link" data-scroll-target="#semantic-graphs-and-assemblies"><span class="header-section-number">8.2.2</span> Semantic graphs and assemblies</a></li>
+  <li><a href="#sec-online-llm-help" id="toc-sec-online-llm-help" class="nav-link" data-scroll-target="#sec-online-llm-help"><span class="header-section-number">7.1</span> As a general help with online LLMs</a></li>
+  <li><a href="#sec-llm-assembly" id="toc-sec-llm-assembly" class="nav-link" data-scroll-target="#sec-llm-assembly"><span class="header-section-number">7.2</span> With a local LLM aside the assembly</a>
+  <ul class="collapse">
+  <li><a href="#sec-assembly-graphs" id="toc-sec-assembly-graphs" class="nav-link" data-scroll-target="#sec-assembly-graphs"><span class="header-section-number">7.2.1</span> Semantic graphs in an assembly</a></li>
+  <li><a href="#sec-assembly-graphs-llm" id="toc-sec-assembly-graphs-llm" class="nav-link" data-scroll-target="#sec-assembly-graphs-llm"><span class="header-section-number">7.2.2</span> Semantic graphs and LLMs together for an assembly</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -280,11 +313,11 @@ cookieconsent.run({
 </header>
 
 
-<section id="what-is-an-assembly" class="level1" data-number="1">
+<section id="sec-what-is-an-assembly" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> What is an assembly?</h1>
 <p>An assembly in Research Data Management is the connected usage of one or many Research Data Management (RDM) tools to achieve a specific goal. It is a way to combine different tools and resources to create a workflow that meets the needs of a particular research project or task. Assemblies can be simple, involving just a few tools, or complex, involving many tools and resources. It could be with a Research Data Management Platform and other tools like a data repository, a data visualization tool, or a data analysis tool, or between different Research Data Management Platforms, such as a sharing platform, an electronic lab notebook (ELN), and a data repository such as iRODS or Aruna. The goal of an assembly is to streamline the research process, improve data management practices, and facilitate collaboration among researchers.</p>
 </section>
-<section id="keep-it-simple" class="level1" data-number="2">
+<section id="sec-keep-it-simple" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Keep it simple</h1>
 <p>When working on a Data Management Solution, it is important to think about the actual usage: will the Scientists benefits from it enough that they will use it and justify the cost of building and maintaining it? One benefit might be a requirement of the funding agency, so might be felt by the Scientists as a burden. The role of a Data Management Solution is to reduce the friction as much as possible (together with the training and support from the Data Management Team), so that the benefits, even if not directly felt by the Scientists, will be enough to justify the usage of the Data Management Solution.</p>
 <p>As such it is important to keep the assembly as simple as possible, and to avoid adding unnecessary complexity or features that do not directly contribute to the research goals. The assembly should be designed with the end-users in mind, and should be easy to use and understand.</p>
@@ -299,59 +332,90 @@ cookieconsent.run({
 <p>Using a version control system, such as Git, to manage the code and track changes is also important.</p>
 <p>We recommend to write this tools following the KISS principle (Keep It Simple, Stupid), so that they are easy to understand and maintain.</p>
 </section>
-</section>
-<section id="avoid-using-the-wrong-tools" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Avoid using the wrong tools</h1>
+<section id="avoid-using-the-wrong-tools" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="avoid-using-the-wrong-tools"><span class="header-section-number">2.2</span> Avoid using the wrong tools</h2>
 <p>An important aspect of data management is to use the right tools for the right tasks. Using a tool that is not designed for a specific task can lead to issues with data integrity, security, and usability.</p>
 <p>For instance, if there is a need for a general file storage solution, using a dedicated Research Data Management Platform for that purpose might not be the best approach, as it can add unnecessary complexity and noise to the platform. Instead, using a general file storage solution, such as NextCloud, that is designed for that purpose can be a better approach.</p>
 <p>The opposite, i.e.&nbsp;using a general file storage solution for storing research data that should be structured and have metadata, is probably a bad idea.</p>
 <p>Convoluted ways to connect the data management platforms have the potential to be extremely damaging in the long term. If there is a need for a quick and dirty solution, it is important to ensure that it will be replaced by a proper solution as soon as possible. “Hacks” are generally time bombs and often, if left in place, will be a problem long after anyone properly remember what it does and how it does it. One good way of providing a temporary fix is when it informs by itself of his temporary nature, if possible.</p>
 </section>
-<section id="concerns-with-assemblies" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Concerns with assemblies</h1>
-<p>When building an assembly, it is important to consider the following concerns: * Compatibility: Ensure that the tools and resources being used are compatible with each other and can work together seamlessly. * Security: Ensure that the tools and resources being used are secure and protect sensitive data. * Scalability: Ensure that the assembly can handle the volume of data and users that will be involved in the research project.</p>
 </section>
-<section id="connecting-using-apis" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Connecting using APIs</h1>
+<section id="sec-assembly-concerns" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Concerns with assemblies</h1>
+<p>When building an assembly, it is important to consider the following concerns:</p>
+<ul>
+<li>Compatibility: Ensure that the tools and resources being used are compatible with each other and can work together seamlessly.</li>
+<li>Security: Ensure that the tools and resources being used are secure and protect sensitive data.</li>
+<li>Scalability: Ensure that the assembly can handle the volume of data and users that will be involved in the research project.</li>
+</ul>
+<section id="security-and-privacy" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="security-and-privacy"><span class="header-section-number">3.1</span> Security and privacy</h2>
+<p>When building an assembly, it is important to consider the security and privacy of the data being used. This may involve implementing access controls, encryption, and other security measures to protect sensitive data.</p>
+<p>If needed, the data can be anonymized or pseudonymized. Anonymization is the process of removing personally identifiable information from data, while pseudonymization is the process of replacing personally identifiable information with a pseudonym. You will find more information on the <a href="../pages/Pseudonymization.html">Pseudonymization page</a>.</p>
 </section>
-<section id="avoid-several-logins-central-identity-management" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Avoid several logins: central identity management</h1>
+</section>
+<section id="sec-assembly-apis" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Connecting using APIs</h1>
+<p>Data management platforms and other tools often provide APIs (Application Programming Interfaces) that allow for programmatic access to their functionality. Using APIs to connect the different parts of the assembly is generally the preferred approach, as it allows using the platforms together while ensuring the right level of control and security. The integration of APIs can be done using small tools, as described above, or using a workflow management system, such as Nextflow or Snakemake, that can orchestrate the different parts of the assembly and ensure that the data flows correctly between them. In some cases, one platform can directly connect to another platform using its API, without the need for an additional tool. This is generally the preferred approach, as it reduces the complexity of the assembly and ensures that the data flows correctly between the platforms.</p>
+<p>LLMs can be used to help with the integration of APIs, see <a href="#sec-online-llm-help">Using a LLM to build an assembly</a> for more information.</p>
+<p>When using APIs, it is important to consider the following:</p>
+<ul>
+<li>Authentication: Ensure that the APIs being used require proper authentication and authorization to access the data and functionality.</li>
+<li>Rate limits: Ensure that the APIs being used have appropriate rate limits to prevent abuse and ensure that the assembly can handle the volume of requests that will be made.</li>
+<li>Error handling: Ensure that the APIs being used have appropriate error handling to prevent issues with data integrity and usability.</li>
+</ul>
+</section>
+<section id="sec-central-identity" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Avoid several logins: central identity management</h1>
 <p>Authentik, Keycloak, or other identity management systems can be used to provide single sign-on (SSO) capabilities for the assembly. This allows users to log in once and access all the tools and resources in the assembly without having to remember multiple usernames and passwords.</p>
 <p>Consortium (such as Life Science login) or institutional identity management systems can also be used to provide SSO capabilities for the assembly. This allows users to log in using their institutional credentials and access all the tools and resources in the assembly without having to remember multiple usernames and passwords.</p>
 </section>
-<section id="assemblies-between-institutions" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> Assemblies between institutions</h1>
+<section id="sec-assemblies-between-institutions" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Assemblies between institutions</h1>
 <p>What is allowed and how to get it allowed?</p>
 <p>Tunneling between institutions can be achieved through the use of virtual private networks (VPNs) or other secure communication protocols. This allows researchers from different institutions to access the tools and resources in the assembly as if they were on the same network.</p>
 <p>Security and privacy concerns must be addressed when building assemblies between institutions. This may involve implementing access controls, encryption, and other security measures to protect sensitive data.</p>
 <p>Performance and reliability concerns must also be addressed when building assemblies between institutions. This may involve optimizing the assembly for performance, implementing redundancy and failover mechanisms, and monitoring the assembly for issues.</p>
 </section>
-<section id="using-a-llm-to-build-an-assembly" class="level1" data-number="8">
-<h1 data-number="8"><span class="header-section-number">8</span> Using a LLM to build an assembly</h1>
-<section id="as-a-general-help-with-online-llms" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="as-a-general-help-with-online-llms"><span class="header-section-number">8.1</span> As a general help with online LLMs</h2>
-<p>Help with APIs, integration, and general assembly building. LLMs can provide guidance on best practices, suggest compatible tools, and help troubleshoot issues that arise during the assembly building process.</p>
+<section id="sec-using-llm-in-assembly" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Using a LLM to build an assembly</h1>
+<section id="sec-online-llm-help" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="sec-online-llm-help"><span class="header-section-number">7.1</span> As a general help with online LLMs</h2>
+<p>If the used data management platforms have APIs and are well known and documented, most online LLMs can write code to use the APIs. It might necessitate some trial and error, and need some manual input (also to provide login credentials, API keys, or other authentication information) but can be a good starting point to build the assembly.</p>
+<p>They can also help with the integration of the different parts of the assembly, point to used taxonomies, ontologies and metadata standards, and finding existing tools. For such tasks, it is important to provide the LLM with as much context as possible, and to ask for links to the used online resources, so that the suggestions can be verified.</p>
+<p>LLMs can also provide guidance on best practices, suggest compatible tools, and help troubleshoot issues that arise during the assembly building process.</p>
 <p>Be careful to understand what is being suggested and to verify the information provided by the LLM. LLMs may not always provide accurate or up-to-date information, so it is important to cross-check their suggestions with reliable sources.</p>
 </section>
-<section id="with-a-local-llm-aside-the-assembly" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="with-a-local-llm-aside-the-assembly"><span class="header-section-number">8.2</span> With a local LLM aside the assembly</h2>
+<section id="sec-llm-assembly" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="sec-llm-assembly"><span class="header-section-number">7.2</span> With a local LLM aside the assembly</h2>
 <p>For instance to help with data analysis, data visualization, or other tasks that are part of the assembly. A local LLM can be used to provide additional support and guidance for researchers working on the assembly. It can for instance help with SparQL queries, data cleaning, or other tasks that require specialized knowledge or expertise.</p>
 <p>The simple approach would be using exposed APIs and documentation, without access to the data itself. This allows the LLM to provide guidance and support without compromising the security or privacy of the data being used in the assembly.</p>
 <p>The next step would be to provide the LLM with access to the data as read-only (no write operations permitted), allowing it to perform more advanced tasks such as data analysis or visualization. It is still important to ensure that the results of the LLM’s analysis are accurate and reliable, and to verify its suggestions with other sources.</p>
-<p>The last step is a “full” approach, where the LLM has full access to the data and can perform any operations necessary to support the assembly. This approach should only be used in cases where the LLM is trusted and has been thoroughly vetted for security and privacy concerns. The access should be limited to the specific tasks required for the assembly, and appropriate safeguards should be in place to protect sensitive data. In no case should the LLM be allowed to make changes to the data without human oversight and approval, and all destructive operation should either be disabled, soft deleted (i.e.&nbsp;not actually deleted but marked as deleted) and/or require human approval before being executed.</p>
-<section id="semantic-graphs-api-documentation-and-llms" class="level3" data-number="8.2.1">
-<h3 data-number="8.2.1" class="anchored" data-anchor-id="semantic-graphs-api-documentation-and-llms"><span class="header-section-number">8.2.1</span> Semantic graphs, API documentation and LLMs</h3>
-<p><a href="pages/SemanticGraphs.qmd">Semantic graphs</a> are an useful representation of data, metadata, and their relationships, relying on existing semantic graphs and ontologies to give an unified view. Data represented within a semantic graph that conforms to common semantic graphs and ontologies can be easily integrated with other data sources conforming to the same semantic graphs and ontologies.</p>
-<p>The main aspect of a semantic graph is a triple:</p>
-<p><code>(subject, predicate, object)</code></p>
-<p>For instance <code>("Sample_1", "has_measurement", "Measurement_1")</code></p>
-<p>Links between triples are simply another triple, for instance <code>("Measurement_1", "is_part_of", "Experiment_1")</code></p>
-<p>But it is often an overkill to use a semantic graph within a Data Management Platform, and most Data Management Platforms rely on a relational database to store their data and metadata.</p>
-<p>In that case, the semantic graph can still be built from the relational database. Data will be subject and object, with the column name the predicate. For instance a table with columns <code>sample_id</code>, <code>measurement_id</code>, and <code>temperature</code> will have the following triples: * <code>(sample_id, measurement_id, temperature)</code></p>
-<p>Metadata will be predicate with object (for instance “storage temperature” as predicate and “4°C” as object).</p>
-<p>As the schema of the relational database is fixed but not necessarily accessible, the semantic graph can be built from the API documentation, if one is available for the Data Management Platform. The API documentation will describe the endpoints and their parameters, which can be used to construct the triples in the semantic graph.</p>
-<p>Most LLMs will know how to build a semantic graph from an API documentation, or if there is another approach better suited. Several tools can also be used to build a semantic graph from an API documentation, or to prepare a semantic graph Query Language endpoint such as SparQL.</p>
-<p>One remaining issue is to use existing semantic graphs and ontologies to give an unified view. This is a complex task that requires a deep understanding of the data and its relationships, as well as semantic of existing semantic graphs and ontologies. LLMs can assist in this process by suggesting relevant semantic graphs and ontologies, and helping to map the data to these representations. But there will probably be a need for human expertise to ensure that the mapping is accurate and meaningful.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>We strongly suggest to avoid giving a LLM write access to the data.
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If it is clear that the benefits outweigh the risks, please proceed with caution.</p>
+</div>
+</div>
+<p>The last step is a “full” approach, where the LLM has full access to the data and can perform any operations necessary to support the assembly. This approach should only be used in cases where the LLM is trusted and has been thoroughly vetted for security and privacy concerns. The access should be limited to the specific tasks required for the assembly, and appropriate safeguards should be in place to protect sensitive data. In no case should the LLM be allowed to make changes to the data without human oversight and approval, and all destructive operation should either be disabled, soft deleted (i.e.&nbsp;not actually deleted but marked as deleted) and/or require human approval before being executed. Logging and monitoring should also be used to track the LLM’s actions, and are generally recommended for any usage, also by researchers.</p>
+<section id="sec-assembly-graphs" class="level3" data-number="7.2.1">
+<h3 data-number="7.2.1" class="anchored" data-anchor-id="sec-assembly-graphs"><span class="header-section-number">7.2.1</span> Semantic graphs in an assembly</h3>
+<p>A <a href="../pages/SemanticGraphs.html">semantic graph</a> describes data and metadata as shared, machine-readable statements. In an assembly, it can give a <strong>unified view</strong> of what is stored in the different tools, and a <strong>single endpoint</strong> to query it (typically SPARQL), wherever the data actually lives. How a semantic graph works is explained on the <a href="../pages/SemanticGraphs.html">Semantic graphs page</a>; this section only covers what matters when deciding whether to use one in an assembly.</p>
+<p><strong>The data does not have to move.</strong> Most Data Management Platforms rely on a relational database, and replacing it is rarely a good idea. The graph can be built <em>from</em> the platform and used only for querying, see <a href="../pages/SemanticGraphs.html#sec-rdb-to-rdf">From relational database to RDF</a>. If the database schema is not accessible, the platform’s API documentation can serve as the starting point to describe the data. LLMs are reasonably good at this first draft, see <a href="../pages/SemanticGraphs.html#sec-sparql-llm">Using a LLM to query a SPARQL endpoint</a>.</p>
+<p><strong>Several graphs may be better than one.</strong> The database schema is fixed, whereas the metadata is dynamic. It can therefore be cleaner to keep separate graphs:</p>
+<ol type="1">
+<li>the schema (read-only);</li>
+<li>the metadata (dynamic);</li>
+<li>the data itself, only if it is also stored as a graph.</li>
+</ol>
+<p><strong>It is the last step, not the first.</strong> Building the graph is expensive. It needs good knowledge of the domain, mapping to existing ontologies that no LLM can fully validate, and it is not something scientists can do by themselves. It is worth considering only if the assembly will be used for a long time and/or by many users. Until then, the simpler options earlier on this page (APIs between tools, single sign-on, small documented tools) deliver most of the benefit.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -362,27 +426,13 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The data do not have to be stored in a semantic graph, and can rely on the built semantic graph only to be queried using a semantic graph Query Language endpoint such as SparQL.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>As the database schema is fixed but the metadata part of the dynamic data, the resulting semantic graph will be a mix of a read-only part (the database schema) and a dynamic part (the metadata). In that case it might be better to create 2 semantic graphs, one for the read-only part and one for the dynamic part. If the data is also stored in a semantic graph, then a 3rd semantic graph can be created to represent the data itself.</p>
+<p>Ontologies and shared meta-data are an important part of most data management platforms, especially to be FAIR. If not familiar with them, we recommend getting a good overview of the topic, for instance with the <a href="https://www.go-fair.org/fair-principles/fair-data-maturity-model/">FAIR Data Maturity Model</a> and the <a href="https://rdmkit.elixir-europe.org/">RDMKit</a>.</p>
 </div>
 </div>
 </section>
-<section id="semantic-graphs-and-assemblies" class="level3" data-number="8.2.2">
-<h3 data-number="8.2.2" class="anchored" data-anchor-id="semantic-graphs-and-assemblies"><span class="header-section-number">8.2.2</span> Semantic graphs and assemblies</h3>
-<p>The main benefit of using a semantic graph in an assembly is that it allows for a unified view of the data and metadata across the various tools and resources being used. This also can allow an unique endpoint for querying the data and metadata, regardless of where they are stored or how they are represented.</p>
-<p>The building cost will be quite high, and it is not something that can be built by the Scientists themselves, while necessitating a good knowledge of the domain. As such, it can be seen as the last step of building an assembly, and should be considered only if the assembly is expected to be used for a long time and/or by many users.</p>
+<section id="sec-assembly-graphs-llm" class="level3" data-number="7.2.2">
+<h3 data-number="7.2.2" class="anchored" data-anchor-id="sec-assembly-graphs-llm"><span class="header-section-number">7.2.2</span> Semantic graphs and LLMs together for an assembly</h3>
+<p>The semantic graph can be used to provide a unified view of the data and metadata in the assembly, while the LLM can be used to provide guidance and support for researchers working on the assembly. The LLM can use the semantic graph to understand the relationships between different data and metadata elements, and to provide suggestions for how to best use the tools and resources in the assembly. As explained in <a href="../pages/SemanticGraphs.html#sec-sparql-llm">Using a LLM to query a SPARQL endpoint</a>, the LLM can be used to generate SPARQL queries based on natural language input, allowing researchers to easily access the data and metadata in the assembly without needing to know the details of the underlying graph structure.</p>
 
 
 </section>
